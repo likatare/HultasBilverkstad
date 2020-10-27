@@ -1,0 +1,70 @@
+﻿@model HultasBilverkstad.ViewModel.YoungAdultBookingViewModel
+
+@{
+    ViewData["Title"] = "YoungAdultBookingResult";
+}
+
+<h1>Bokningsbekräftelse</h1>
+
+<<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.YoungAdult.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.YoungAdult.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.YoungAdult.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.YoungAdult.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.YoungAdult.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.YoungAdult.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.YoungAdult.PhoneNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.YoungAdult.PhoneNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.YoungAdult.Age)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.YoungAdult.Age)
+        </dd>
+        <dt class="col-sm-2">
+            Invändig rengöring
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.AdditionalService)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Service.RegistrationsNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.RegistrationsNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Service.Comment)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.Comment)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Service.DateTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.DateTime)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-controller="Home" asp-action="Index">Tillbaka till startsidan</a>
+</div>

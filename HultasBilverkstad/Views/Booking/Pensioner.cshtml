@@ -1,0 +1,56 @@
+﻿@model HultasBilverkstad.ViewModel.PensionerBookingViewModel
+
+@{
+    ViewData["Title"] = "Pensioner";
+}
+
+<h1>Fyll i Dina uppgifter</h1>
+
+<h4>ServiceModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="PensionerBookingResult">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Polering</label>
+                <input type="radio" value="Ja" asp-for="Service.AdditionalService" />
+                <label asp-for="Service.AdditionalService" class="control-label">Ja</label>
+                <input type="radio" value="Nej" checked asp-for="Service.AdditionalService" />
+                <label asp-for="Service.AdditionalService" class="control-label">Nej</label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Service.DateTime" class="control-label"></label>
+                <input asp-for="Service.DateTime" class="form-control" />
+                <span asp-validation-for="Service.DateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Service.Comment" class="control-label"></label>
+                <input asp-for="Service.Comment" class="form-control" />
+                <span asp-validation-for="Service.Comment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Service.RegistrationsNumber" class="control-label"></label>
+                <input asp-for="Service.RegistrationsNumber" class="form-control" />
+                <span asp-validation-for="Service.RegistrationsNumber" class="text-danger"></span>
+            </div>
+            <input hidden="hidden" asp-for="Pensioners.Email" />
+            <input hidden="hidden" asp-for="Pensioners.FirstName" />
+            <input hidden="hidden" asp-for="Pensioners.LastName" />
+            <input hidden="hidden" asp-for="Pensioners.PersonalIdentityNumber" />
+            <input hidden="hidden" asp-for="Pensioners.PhoneNumber" />
+
+            <div class="form-group">
+                <input type="submit" value="Boka" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

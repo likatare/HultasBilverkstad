@@ -31,25 +31,22 @@
                     <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Age" class="control-label"></label>
-                    <input asp-for="Age" class="form-control" />
-                    <span asp-validation-for="Age" class="text-danger"></span>
+                    <label asp-for="BirthYear" class="control-label"></label>
+                    <input type="date" asp-for="BirthYear" asp-format="{0:dd/MM/yyyy}" class="form-control" />
+                    <span asp-validation-for="BirthYear" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="PersonalIdentityNumber" class="control-label"></label>
-                    <input type="number" asp-for="PersonalIdentityNumber" class="form-control" />
-                    <span asp-validation-for="PersonalIdentityNumber" class="text-danger"></span>
-                </div>
-                <div class="form-group">
+                    <p>* Nödvändig</p>
                     <input type="submit" value="Nästa" class="btn btn-primary" />
                 </div>
+                <h3 style="color:rebeccapurple">@ViewBag.Errormessage </h3>
             </form>
         </div>
     </div>
 
-<div>
-    <a asp-controller="Home" asp-action="Index">Tillbaka</a>
-</div>
+    <div style="font-size:x-large">
+        <a asp-controller="Home" asp-action="Index">Tillbaka till startsidan</a>
+    </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -30,9 +30,6 @@ namespace DataAccessLibrary.Repository
 
             Database db = new Database();
             db.PensionerCollection.InsertOne(pensioners);
-           
-
-          
         }
     }
 }

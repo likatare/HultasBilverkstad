@@ -20,7 +20,7 @@
                 <label asp-for="Service.AdditionalService" class="control-label">Nej</label>
             </div>
             <div class="form-group">
-                <label asp-for="Service.DateTime" class="control-label"></label>
+                Datum *
                 <input asp-for="Service.DateTime" class="form-control" />
                 <span asp-validation-for="Service.DateTime" class="text-danger"></span>
             </div>
@@ -30,7 +30,7 @@
                 <span asp-validation-for="Service.Comment" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Service.RegistrationsNumber" class="control-label"></label>
+                RegistreringsNummer *
                 <input asp-for="Service.RegistrationsNumber" class="form-control" />
                 <span asp-validation-for="Service.RegistrationsNumber" class="text-danger"></span>
             </div>
@@ -46,8 +46,8 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div style="font-size:large">
+    <a  asp-controller="Home" asp-action="Index">Tillbaka till hemsidan</a>
 </div>
 
 @section Scripts {

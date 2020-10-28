@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace DataAccessLibrary
@@ -9,6 +10,7 @@ namespace DataAccessLibrary
     {
         private int _age;
         [DisplayName("Ålder")]
+        [Required(ErrorMessage = "ålder saknas")]
         public int Age
         {
             get { return _age; }
@@ -24,16 +26,43 @@ namespace DataAccessLibrary
         }
 
 
-        public YoungAdultModel CheckAge(RegisterModel regModel)
+        public int GetAgeMinimum()
         {
-            YoungAdultModel youngAdultModel = new YoungAdultModel();
 
-            if (regModel.Age < 25)
+
+            return 18;
+
+        }
+
+        public int GetAgeMaximum()
+        {
+
+
+            return 25;
+
+        }
+
+
+
+
+        public bool CheckAge(RegisterModel regModel)
+        {
+            YoungAdultModel youngAdult = new YoungAdultModel();
+           
+
+            regModel.Age = regModel.GetAge(regModel);
+
+            if (regModel.Age >= youngAdult.GetAgeMinimum() && regModel.Age <= youngAdult.GetAgeMaximum())
             {
-                youngAdultModel = Booking(regModel);
+                return true;
+
+            }
+            else
+            {
+                return false;
             }
 
-            return youngAdultModel;
+
 
         }
 

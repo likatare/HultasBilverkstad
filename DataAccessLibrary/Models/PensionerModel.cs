@@ -2,17 +2,19 @@
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace DataAccessLibrary
 {
     public class PensionerModel : UserModel
     {
-        private int _personalIdentityNumber;
-        [DisplayName("Personnummer")]
-        public int PersonalIdentityNumber
+        private DateTime _birthDate;
+        [DisplayName("Personnummer *")]
+        [Required(ErrorMessage = "personnummer saknas")]
+        public DateTime BirthDate
         {
-            get { return _personalIdentityNumber; }
-            set { _personalIdentityNumber = value; }
+            get { return _birthDate; }
+            set { _birthDate = value; }
         }
 
         private ServiceModel _bookedService;
@@ -23,13 +25,45 @@ namespace DataAccessLibrary
             set { _bookedService = value; }
         }
 
-
-        private void GetAge()
+        public int GetAgeMinimum()
         {
-            DateTime DateTime = DateTime.Now;
+
+
+            return 26;
+
         }
 
-        public PensionerModel  Booking(RegisterModel regModel)
+        public int GetAgeMaximum()
+        {
+
+
+            return 100;
+
+        }
+
+        public bool CheckAge(RegisterModel regModel)
+        {
+            PensionerModel pensioner = new PensionerModel();
+
+
+            regModel.Age = regModel.GetAge(regModel);
+
+            if (regModel.Age >= pensioner.GetAgeMinimum() && regModel.Age <= pensioner.GetAgeMaximum())
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+
+
+
+        }
+
+
+        public PensionerModel Booking(RegisterModel regModel)
         {
             PensionerModel userModel = new PensionerModel
             {
@@ -37,7 +71,7 @@ namespace DataAccessLibrary
                 LastName = regModel.LastName,
                 Email = regModel.Email,
                 PhoneNumber = regModel.PhoneNumber,
-                PersonalIdentityNumber = regModel.PersonalIdentityNumber
+                BirthDate = regModel.BirthYear
             };
 
             return userModel;

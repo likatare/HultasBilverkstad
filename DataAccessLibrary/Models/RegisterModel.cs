@@ -9,7 +9,8 @@ namespace DataAccessLibrary
     public class RegisterModel
     {
         private string _firstName;
-        [DisplayName("Förnamn")]
+        [DisplayName("Förnamn *")]
+        [Required(ErrorMessage = "förnamn saknas")]
         public string FirstName
         {
             get { return _firstName; }
@@ -17,7 +18,8 @@ namespace DataAccessLibrary
         }
 
         private string _lastName;
-        [DisplayName("Efternamn")]
+        [DisplayName("Efternamn *")]
+        [Required(ErrorMessage = "efternamn saknas")]
         public string LastName
         {
             get { return _lastName; }
@@ -25,7 +27,8 @@ namespace DataAccessLibrary
         }
 
         private string _email;
-        [DisplayName("Epost")]
+        [DisplayName("Epost *")]
+        [Required(ErrorMessage = "epost saknas")]
         public string Email
         {
             get { return _email; }
@@ -41,23 +44,35 @@ namespace DataAccessLibrary
         }
 
         private int _age;
-        [DisplayName("Ålder")]
+        [DisplayName("Ålder *")]
+        [Required(ErrorMessage = "ålder saknas")]
         public int Age
         {
             get { return _age; }
             set { _age = value; }
         }
 
-        private int _personalIdentityNumber;
-        [DisplayName("Personummer")]
-        public int PersonalIdentityNumber
+        private DateTime _birthYear;
+        [DisplayName("Personummer *")]
+        [Required (ErrorMessage ="personummer saknas")]
+        public DateTime BirthYear
         {
-            get { return _personalIdentityNumber; }
-            set { _personalIdentityNumber = value; }
+            get { return _birthYear; }
+            set { _birthYear = value; }
         }
 
 
-       
+        
+
+        public int GetAge(RegisterModel regModel)
+        {
+            DateTime now = DateTime.Now;
+            int age = now.Year - regModel.BirthYear.Year;
+
+            return age;
+        }
+
+
 
     }
 }

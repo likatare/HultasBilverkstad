@@ -27,20 +27,24 @@ namespace HultasBilverkstad.Controllers
             YoungAdultModel youngAdult = new YoungAdultModel();
             PensionerModel pensioner = new PensionerModel();
 
+           
 
-            if (regModel.Age < 25)
+            if (youngAdult.CheckAge(regModel))
             {
-                youngAdult = youngAdult.CheckAge(regModel);
-                //YoungAdultRepository.InsertUser(youngAdult);
+                youngAdult = youngAdult.Booking(regModel);
                 return RedirectToAction("YoungAdult", "Booking", youngAdult);
                
             }
+            else if(pensioner.CheckAge(regModel))
+            {
+                pensioner = pensioner.Booking(regModel);
+                return RedirectToAction("Pensioner", "Booking", pensioner);
+            }
             else
             {
-
-                pensioner = pensioner.Booking(regModel);
-                PensionerRepository.InsertUser(pensioner);
-                return RedirectToAction("Pensioner", "Booking", pensioner);
+                
+                ViewBag.Errormessage = "Ange en annan ålder";
+                return View(regModel);
             }
 
         }

@@ -20,37 +20,38 @@
                 <label asp-for="Service.AdditionalService" class="control-label">Nej</label>
             </div>
             <div class="form-group">
-                <label asp-for="Service.DateTime" class="control-label"></label>
+                Datum *
                 <input asp-for="Service.DateTime" class="form-control" />
                 <span asp-validation-for="Service.DateTime" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Service.Comment" class="control-label"></label>
+                <label asp-for="Service.DateTime" class="control-label"></label>
                 <input asp-for="Service.Comment" class="form-control" />
                 <span asp-validation-for="Service.Comment" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Service.RegistrationsNumber" class="control-label"></label>
-                <input asp-for="Service.RegistrationsNumber" class="form-control" />
+                Registreringsnummer *
+                <input asp-for="Service.Comment" class="form-control" />
                 <span asp-validation-for="Service.RegistrationsNumber" class="text-danger"></span>
             </div>
+            <input hidden="hidden" asp-for="Service.RegistrationsNumber" />
             <input hidden="hidden" asp-for="Pensioners.Email" />
             <input hidden="hidden" asp-for="Pensioners.FirstName" />
             <input hidden="hidden" asp-for="Pensioners.LastName" />
-            <input hidden="hidden" asp-for="Pensioners.PersonalIdentityNumber" />
-            <input hidden="hidden" asp-for="Pensioners.PhoneNumber" />
+            <input hidden="hidden" asp-for="Pensioners.BirthDate" />
 
             <div class="form-group">
+                <p>* Nödvändig</p>
                 <input type="submit" value="Boka" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div style="font-size:x-large">
+    <a asp-controller="Home" asp-action="Index">Tillbaka till startsidan</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_ValidationtsPartial");}
 }

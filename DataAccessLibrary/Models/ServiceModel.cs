@@ -1,6 +1,8 @@
-﻿using System;
+﻿using DataAccessLibrary.Repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace DataAccessLibrary
@@ -17,6 +19,7 @@ namespace DataAccessLibrary
 
         private DateTime _dateTime = DateTime.Today;
         [DisplayName("Datum")]
+        [Required(ErrorMessage = "datum saknas")]
         public DateTime DateTime
         {
             get { return _dateTime; }
@@ -37,6 +40,16 @@ namespace DataAccessLibrary
         {
             get { return _registrationsNumber; }
             set { _registrationsNumber = value; }
+        }
+
+        public void ServicePensioner( PensionerModel pensioner , ServiceModel service)
+        {
+            PensionerRepository.InsertBookingresult(service,pensioner );
+        }
+
+        public void ServiceYoungAdult(YoungAdultModel youngAdult, ServiceModel service)
+        {
+            YoungAdultRepository.InsertBookingresult(service, youngAdult);
         }
 
 

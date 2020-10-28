@@ -89,14 +89,14 @@ body {
 }
 
 .index-bakground-image {
-    background-image: url('../images/car workshop.png');
+    background-image: url('../images/cruisin-oldies.jpg');
     height: 1179px;
     width: 100%;
     left: 0;
     top: 57px;
     overflow: hidden;
     position: fixed;
-    background-size: cover;
+    background-repeat:no-repeat;
 }
 
 

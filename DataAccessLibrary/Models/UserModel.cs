@@ -10,6 +10,7 @@ namespace DataAccessLibrary
     {
         private string _firstname;
         [DisplayName("Förnamn")]
+        [Required(ErrorMessage = "förnamn saknas")]
         public string FirstName
         {
             get { return _firstname; }
@@ -18,6 +19,7 @@ namespace DataAccessLibrary
 
         private string _lastName;
         [DisplayName("Efternamn")]
+        [Required(ErrorMessage = "efternamn saknas")]
         public string LastName
         {
             get { return _lastName; }
@@ -26,6 +28,7 @@ namespace DataAccessLibrary
 
         private string _email;
         [DisplayName("Epost")]
+        [Required(ErrorMessage = "epost saknas")]
         public string Email
         {
             get { return _email; }
@@ -34,6 +37,7 @@ namespace DataAccessLibrary
 
         private string _phoneNumber;
         [DisplayName("Telefonnummer")]
+        [Required(ErrorMessage = "telefonnummer saknas")]
         public string PhoneNumber
         {
             get { return _phoneNumber; }

@@ -28,7 +28,9 @@ namespace HultasBilverkstad.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult PensionerBookingResult(PensionerBookingViewModel pensionerBooking)
         {
-            PensionerRepository.InsertBookingresult(pensionerBooking.Service,pensionerBooking.Pensioners);
+           
+            ServiceModel service = new ServiceModel();
+            service.ServicePensioner(pensionerBooking.Pensioners, pensionerBooking.Service);
 
             return View(pensionerBooking);
         }
@@ -49,7 +51,9 @@ namespace HultasBilverkstad.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult YoungAdultBookingResult(YoungAdultBookingViewModel youngAdultBooking)
         {
-            YoungAdultRepository.InsertBookingresult(youngAdultBooking.Service, youngAdultBooking.YoungAdult);
+            ServiceModel service = new ServiceModel();
+            service.ServiceYoungAdult(youngAdultBooking.YoungAdult, youngAdultBooking.Service);
+            
 
             return View(youngAdultBooking);
         }

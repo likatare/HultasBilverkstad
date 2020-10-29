@@ -9,6 +9,10 @@ a.navbar-brand {
     word-break: break-all;
 }
 
+.navbar-brand{
+    font-size:2.25rem;
+}
+
 /* Provide sufficient contrast against white background */
 a {
     color: #0366d6;
@@ -47,6 +51,10 @@ a {
     border-color: #1861ac;
 }
 
+
+.navbar{
+    height:100px;
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -89,16 +97,16 @@ body {
 }
 
 .index-bakground-image {
-    background-image: url('../images/cruisin-oldies.jpg');
-    height: 1179px;
-    width: 100%;
-    left: 0;
-    top: 57px;
-    overflow: hidden;
-    position: fixed;
-    background-repeat:no-repeat;
+   display:flex;
+   justify-content:center;
+   margin:100px auto;
+   overflow:hidden;
+       
 }
 
+.background-color {
+    background-color: #bbb0a7a8;
+}
 
 
 
@@ -109,7 +117,8 @@ body {
     align-items: center;
     text-align: center;
     margin-top: 10%;
-    color: yellow;
+    color: rgba(0,0,0,.9);
+    
 }
 
 .book-text {
@@ -120,7 +129,7 @@ body {
     text-align: center;
     vertical-align: middle;
     line-height: 90px;
-    color: yellow;
+    color: rgba(0,0,0,.9);
     font-size: 35px;
     background: rgba(105, 105, 105, 0.5);
     margin-top: 5%;
@@ -144,16 +153,12 @@ body {
     width: 100%;
     white-space: nowrap;
     line-height: 60px; /* Vertically center the text there */
+    background-color: #fff;
 }
 
 @media (max-width:1024px) {
     .index-bakground-image {
-        height: 528px;
-        width: 100%;
-        left: 0;
-        top: 8%;
-        overflow: hidden;
-        position: fixed;
+       visibility:hidden;
     }
 }
 

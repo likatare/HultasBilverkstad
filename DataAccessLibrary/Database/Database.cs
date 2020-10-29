@@ -6,10 +6,11 @@ using System.Text;
 namespace DataAccessLibrary
 {
     class Database
-    {  
-        private readonly IMongoDatabase _database;
+    {
+        //private readonly IMongoDatabase _database;
+
         public IMongoCollection<PensionerModel> PensionerCollection { get; private set; }
-      
+
         private const string PENSIONER_COLLECTION = "pensioners";
         public IMongoCollection<YoungAdultModel> YoungAdultCollection { get; private set; }
 
@@ -17,8 +18,9 @@ namespace DataAccessLibrary
 
         public Database()
         {
-            MongoClient client = new MongoClient();
-            _database = client.GetDatabase("hultas-bilverkstad");
+
+            MongoClient client = new MongoClient("mongodb+srv://admin:Abc123@cluster0.spjb5.mongodb.net/hultas-bilverkstad?retryWrites=true&w=majority");
+            var _database = client.GetDatabase("hultas-bilverkstad");
             PensionerCollection = _database.GetCollection<PensionerModel>(PENSIONER_COLLECTION);
             YoungAdultCollection = _database.GetCollection<YoungAdultModel>(YOUNGADULT_COLLECTION);
         }

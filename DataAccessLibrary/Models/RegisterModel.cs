@@ -36,7 +36,7 @@ namespace DataAccessLibrary
         }
 
         private string _phoneNumber;
-        [DisplayName("Telefonummer")]
+        [DisplayName("Telefonnummer")]
         public string PhoneNumber
         {
             get { return _phoneNumber; }
@@ -53,8 +53,8 @@ namespace DataAccessLibrary
         }
 
         private DateTime _birthYear;
-        [DisplayName("Personummer *")]
-        [Required (ErrorMessage ="personummer saknas")]
+        [DisplayName("Personnummer *")]
+        [Required (ErrorMessage ="personnummer saknas")]
         public DateTime BirthYear
         {
             get { return _birthYear; }

@@ -21,7 +21,9 @@
             </div>
             <div class="form-group">
                 Datum *
-                <input asp-for="Service.DateTime" class="form-control" />
+                <br />
+                åååå-mm-dd
+                <input type="date" asp-for="Service.DateTime" class="form-control" />
                 <span asp-validation-for="Service.DateTime" class="text-danger"></span>
             </div>
             <div class="form-group">

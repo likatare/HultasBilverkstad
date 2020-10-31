@@ -17,7 +17,8 @@ namespace DataAccessLibrary
             set { _additionalService = value; }
         }
 
-        private DateTime _dateTime = DateTime.Today;
+        private DateTime _dateTime = DateTime.Today.Date;
+        
         [DisplayName("Datum")]
         [Required(ErrorMessage = "datum saknas")]
         public DateTime DateTime

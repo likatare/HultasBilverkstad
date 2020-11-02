@@ -8,10 +8,10 @@ namespace DataAccessLibrary
 {
     public class PensionerModel : UserModel
     {
-        private DateTime _birthDate;
+        private string _birthDate;
         [DisplayName("Personnummer *")]
         [Required(ErrorMessage = "personnummer saknas")]
-        public DateTime BirthDate
+        public string BirthDate
         {
             get { return _birthDate; }
             set { _birthDate = value; }
@@ -71,7 +71,7 @@ namespace DataAccessLibrary
                 LastName = regModel.LastName,
                 Email = regModel.Email,
                 PhoneNumber = regModel.PhoneNumber,
-                BirthDate = regModel.BirthYear
+                BirthDate = regModel.BirthYear 
             };
 
             return userModel;

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace DataAccessLibrary
 {
@@ -20,6 +21,7 @@ namespace DataAccessLibrary
         private DateTime _dateTime = DateTime.Today.Date;
         
         [DisplayName("Datum")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         [Required(ErrorMessage = "datum saknas")]
         public DateTime DateTime
         {
@@ -37,6 +39,10 @@ namespace DataAccessLibrary
 
         private string _registrationsNumber;
         [DisplayName("Registreringsnummer")]
+        [Required(ErrorMessage ="Registreringsnummer saknas")]
+        [RegularExpression("[A-Za-z]{3}[0-9]{2}[A-Za-z0-9]{1}", ErrorMessage = "Ange ett giltigt registreringsnummer")]
+        [MaxLength(7)]
+        [MinLength(2)]
         public string RegistrationsNumber
         {
             get { return _registrationsNumber; }

@@ -52,22 +52,25 @@ namespace DataAccessLibrary
             set { _age = value; }
         }
 
-        private DateTime _birthYear;
+        
+        private string _birthYear;
         [DisplayName("Personnummer *")]
+        [RegularExpression(@"^(19|20)?[0-9]{6}[- ]?[0-9]{4}$", ErrorMessage ="personnummer fel format") ]
         [Required (ErrorMessage ="personnummer saknas")]
-        public DateTime BirthYear
+        public string BirthYear
         {
             get { return _birthYear; }
             set { _birthYear = value; }
         }
-
-
         
-
         public int GetAge(RegisterModel regModel)
         {
+            var piecesOfBirthyear  = regModel.BirthYear.Substring(0,4);
+
+            regModel.BirthYear = piecesOfBirthyear;
+
             DateTime now = DateTime.Now;
-            int age = now.Year - regModel.BirthYear.Year;
+            int age = now.Year - int.Parse(regModel.BirthYear);
 
             return age;
         }
